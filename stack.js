@@ -1,7 +1,7 @@
 /** Node: node for a stack. */
 
 class Node {
-  constructor(val, next=null) {
+  constructor(val, next = null) {
     this.val = val;
     this.next = next;
   }
@@ -22,14 +22,14 @@ class Stack {
   push(val) {
     // create newNode
     // if empty
-      //set head and tail to newNode
-    
+    //set head and tail to newNode
+
     // set temp to this.first
     // set first to newNode
     //set newNode.next to temp
 
     let newNode = new Node(val);
-    
+
     if (this.first === null) {
       this.first = newNode;
       this.last = newNode;
@@ -47,19 +47,18 @@ class Stack {
    * and return its value. Should throw an error if the stack is empty. */
 
   pop() {
-
-
-
-
-
-
-
-
-
-
-
-
+   if (this.head === null) throw new Error('Error');
+    let removed = this.first;
     
+    if (this.size === 1) {
+      this.last = null;
+    }
+    
+    this.first = this.first.next;
+    this.size--;
+
+    return removed.val;
+
     // if(!this.first) throw new Error('Error');
 
     // let removed = this.first;
