@@ -22,13 +22,19 @@ class Queue {
   enqueue(val) {
     let newNode = new Node(val);
 
-    if (!this.first) {
+    //if it's empty, point first and last to newNode
+    //point the current last to newNode
+    //move the this.last pointer to newNode
+    //increase size
+
+    if (this.first === null) {
       this.first = newNode;
       this.last = newNode;
     } else {
       this.last.next = newNode;
       this.last = newNode;
     }
+
     this.size++;
     return;
   }
@@ -39,12 +45,18 @@ class Queue {
   dequeue() {
     if (!this.first) throw new Error('Error');
 
+    //create remove variable to hold the value of removed(original first)
+    //EDGE: if the size of queue is 1, set last to null
+    //point first to first.next
+    //return removed
+
     let removed = this.first;
 
+    
     if (this.first === this.last) {
       this.last = null;
     }
-
+    
     this.first = this.first.next;
     this.size--;
     return removed.val;
